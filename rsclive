@@ -1,0 +1,13 @@
+export default {
+  async fetch(request, env, ctx) {
+    const destinationURL = "https://gitlab.com/aninditar035-max/rsciptv1/-/raw/main/chanel.m3u";
+    const response = await fetch(destinationURL);
+
+    return new Response(response.body, {
+      headers: {
+        "content-type": "audio/x-mpegurl",
+        "access-control-allow-origin": "*"
+      }
+    });
+  },
+};
